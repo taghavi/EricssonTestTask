@@ -1,0 +1,27 @@
+
+version: "3"
+
+
+services:
+ 
+  server:
+    hostname: 'server_test_task'
+    
+    build: Server/
+
+    ports:
+      - 9980:9980
+    stdin_open: true
+    tty: true      
+    
+
+  
+  client:
+   
+    build: Client/
+
+    tty: true
+    stdin_open: true
+   
+    depends_on:
+      - server
